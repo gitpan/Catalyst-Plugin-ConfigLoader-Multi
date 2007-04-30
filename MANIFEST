@@ -1,0 +1,18 @@
+.cvsignore
+Changes
+lib/Catalyst/Plugin/ConfigLoader/Multi.pm
+Makefile.PL
+MANIFEST
+META.yml			# Will be created by "make dist"
+README
+t/00-load.t
+t/01-app.t
+t/boilerplate.t
+t/lib/conf/testapp.yml
+t/lib/conf/testapp_bar.yml
+t/lib/conf/testapp_foo.yml
+t/lib/conf/testapp_local.yml
+t/lib/TestApp.pm
+t/lib/TestApp/Controller/Root.pm
+t/pod-coverage.t
+t/pod.t
