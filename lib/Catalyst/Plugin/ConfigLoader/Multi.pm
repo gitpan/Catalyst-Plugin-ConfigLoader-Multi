@@ -8,7 +8,7 @@ use Catalyst::Utils;
 use DirHandle;
 use NEXT;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 sub find_files {
     my $c = shift;
@@ -103,9 +103,11 @@ Your directory
 =head1 DESCRIPTION
 
 When a project is getting bigger and biggger , it is hard to organaize a config
-file. So we create this plugin which divide a config file to multiple. 
+file. So we create this plugin which divide a config file to multiple. Config
+files name must start your project prrefix. such as 'myapp_' .
 
  __PACKAGE__->config( file => __PACKAGE__->path_to('conf')  );
+
 Do not forget add this code to your MyApp.pm
 
 =head1 METHOD
