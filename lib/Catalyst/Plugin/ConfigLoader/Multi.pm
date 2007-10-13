@@ -8,7 +8,7 @@ use Catalyst::Utils;
 use DirHandle;
 use NEXT;
 
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 sub find_files {
     my $c = shift;
@@ -71,7 +71,7 @@ Catalyst::Plugin::ConfigLoader::Multi - Catalyst Plugin for Multiple ConfigLoade
     
     __PACKAGE__->config( name => 'MyApp' );
     # Do not forget add this.
-    __PACKAGE__->config( file => __PACKAGE__->path_to('conf')  );
+    __PACKAGE__->config( 'Plugin::ConfigLoader' => { file => __PACKAGE__->path_to('conf')  } );
     
     __PACKAGE__->setup;
     
@@ -106,7 +106,7 @@ When a project is getting bigger and biggger , it is hard to organaize a config
 file. So we create this plugin which divide a config file to multiple. Config
 files name must start your project prrefix. such as 'myapp_' .
 
- __PACKAGE__->config( file => __PACKAGE__->path_to('conf')  );
+ __PACKAGE__->config( 'Plugin::ConfigLoader' => { file => __PACKAGE__->path_to('conf')  } );
 
 Do not forget add this code to your MyApp.pm
 
@@ -123,7 +123,14 @@ L<Catalyst::Plugin::ConfigLoader>
 =head1 AUTHOR
 
 Masahiro Funakoshi <masap@cpan.org>
+
 Yu-suke Amano 
+
 Tomohiro Teranishi <tomohiro.teranishi@gmail.com>
+
+=head1 COPYRIGHT
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself. 
 
 =cut

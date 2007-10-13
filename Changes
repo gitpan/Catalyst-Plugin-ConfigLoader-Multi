@@ -1,5 +1,8 @@
 Revision history for Catalyst-Plugin-ConfigLoader-Multi
 
+0.03    2007-10-13/23:07
+        - Fix test file and POD for C::P::ConfigLoader update.
+
 0.02    2007-05-11/20:36
         - Add Remove RenderView from Test Lib 
         - Fix POD

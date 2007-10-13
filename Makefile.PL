@@ -11,7 +11,7 @@ WriteMakefile(
     PREREQ_PM => {
         'Test::More'                     => 0,
         'Catalyst'                       => 0,
-        'Catalyst::Plugin::ConfigLoader' => 0.12,
+        'Catalyst::Plugin::ConfigLoader' => 0.17,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Catalyst-Plugin-ConfigLoader-Multi-*' },

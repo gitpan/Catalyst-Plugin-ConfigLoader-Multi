@@ -3,7 +3,6 @@ Changes
 lib/Catalyst/Plugin/ConfigLoader/Multi.pm
 Makefile.PL
 MANIFEST
-META.yml			# Will be created by "make dist"
 README
 t/00-load.t
 t/01-app.t
@@ -16,3 +15,4 @@ t/lib/TestApp.pm
 t/lib/TestApp/Controller/Root.pm
 t/pod-coverage.t
 t/pod.t
+META.yml                                 Module meta-data (added by MakeMaker)

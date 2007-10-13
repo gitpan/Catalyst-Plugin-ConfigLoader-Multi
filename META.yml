@@ -1,12 +1,12 @@
 # http://module-build.sourceforge.net/META-spec.html
 #XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
 name:         Catalyst-Plugin-ConfigLoader-Multi
-version:      0.02
+version:      0.03
 version_from: lib/Catalyst/Plugin/ConfigLoader/Multi.pm
 installdirs:  site
 requires:
     Catalyst:                      0
-    Catalyst::Plugin::ConfigLoader: 0.12
+    Catalyst::Plugin::ConfigLoader: 0.17
     Test::More:                    0
 
 distribution_type: module
