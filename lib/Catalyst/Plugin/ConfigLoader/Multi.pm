@@ -8,7 +8,7 @@ use Catalyst::Utils;
 use DirHandle;
 use NEXT;
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 sub find_files {
     my $c = shift;
@@ -55,7 +55,7 @@ sub _find_my_files {
 
 Catalyst::Plugin::ConfigLoader::Multi - Catalyst Plugin for Multiple ConfigLoader
 
-=head1 SYNOPSYS
+=head1 SYNOPSIS
 
     package MyApp;
     

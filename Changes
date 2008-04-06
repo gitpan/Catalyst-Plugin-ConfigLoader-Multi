@@ -1,5 +1,9 @@
 Revision history for Catalyst-Plugin-ConfigLoader-Multi
 
+0.04    2008-04-06/12:28
+        - Fix typo
+        - using Module::Install
+
 0.03    2007-10-13/23:07
         - Fix test file and POD for C::P::ConfigLoader update.
 

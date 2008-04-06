@@ -1,18 +1,13 @@
 use strict;
 use warnings;
-use ExtUtils::MakeMaker;
+use inc::Module::Install;
 
-WriteMakefile(
-    NAME                => 'Catalyst::Plugin::ConfigLoader::Multi',
-    AUTHOR              => 'Mashiro Funakoshi <masap@cpan.org>',
-    VERSION_FROM        => 'lib/Catalyst/Plugin/ConfigLoader/Multi.pm',
-    ABSTRACT_FROM       => 'lib/Catalyst/Plugin/ConfigLoader/Multi.pm',
-    PL_FILES            => {},
-    PREREQ_PM => {
-        'Test::More'                     => 0,
-        'Catalyst'                       => 0,
-        'Catalyst::Plugin::ConfigLoader' => 0.17,
-    },
-    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'Catalyst-Plugin-ConfigLoader-Multi-*' },
-);
+name 'Catalyst-Plugin-ConfigLoader-Multi';
+author 'Mashiro Funakoshi <masap@cpan.org>';
+all_from 'lib/Catalyst/Plugin/ConfigLoader/Multi.pm';
+requires 'Test::More'                     => 0;
+requires 'Catalyst'                       => 0;
+requires 'Catalyst::Plugin::ConfigLoader' => 0.17;
+license 'perl';
+auto_install;
+WriteAll;
