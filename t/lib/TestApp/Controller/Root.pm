@@ -33,6 +33,13 @@ sub default : Private {
     $c->response->body( $c->welcome_message );
 }
 
+sub env_test : Local {
+    my ( $s , $c )  = @_;
+
+
+        $c->response->body($c->config->{ENV_TEST} );
+
+}
 sub test : Local {
     my ( $s , $c )  = @_;
 

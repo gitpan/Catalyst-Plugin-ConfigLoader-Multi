@@ -1,5 +1,9 @@
 Revision history for Catalyst-Plugin-ConfigLoader-Multi
 
+0.05    2008-04-06/20:24
+        - add spelling.t
+        - add $ENV{MYAPP_CONFIG_MULTI} support
+
 0.04    2008-04-06/12:28
         - Fix typo
         - using Module::Install

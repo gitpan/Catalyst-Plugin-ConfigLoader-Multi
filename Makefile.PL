@@ -8,6 +8,7 @@ all_from 'lib/Catalyst/Plugin/ConfigLoader/Multi.pm';
 requires 'Test::More'                     => 0;
 requires 'Catalyst'                       => 0;
 requires 'Catalyst::Plugin::ConfigLoader' => 0.17;
+requires 'Test::Spelling'                 => 0;
 license 'perl';
 auto_install;
 WriteAll;
