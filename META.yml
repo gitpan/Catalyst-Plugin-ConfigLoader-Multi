@@ -18,4 +18,4 @@ requires:
   Catalyst::Plugin::ConfigLoader: 0.17
   Test::More: 0
   Test::Spelling: 0
-version: 0.05
+version: 0.06

@@ -8,15 +8,39 @@ use Catalyst::Utils;
 use DirHandle;
 use NEXT;
 
-our $VERSION = 0.05;
+our $VERSION = 0.06;
+
 
 sub find_files {
     my $c = shift;
+    my ( $path, $extension ) = $c->get_config_path;
+    my $suffix     = $c->get_config_local_suffix;
+    my @extensions = @{ Config::Any->extensions };
 
-    my @files    = $c->SUPER::find_files();
+    my $prefix = Catalyst::Utils::appprefix( ref $c || $c );
+    my $config_key_name = uc($prefix) . '_CONFIG_MULTI';
+
+    my @files;
+    if ( $extension ) {
+        die "Unable to handle files with the extension '${extension}'"
+            unless grep { $_ eq $extension } @extensions;
+        ( my $local = $path ) =~ s{\.$extension}{_$suffix.$extension};
+        push @files, $path, $local;
+    }
+    else {
+        # do not append lcoal suffix
+        if ($ENV{ $config_key_name } ) {
+            @files = map { ( "$path.$_" ) } @extensions;
+        }
+        else {
+            @files = map { ( "$path.$_", "${path}_${suffix}.$_" ) } @extensions;
+        }
+    }
     my @my_files = $c->_find_my_files();
 
-    return ( @files, @my_files );
+    push @my_files , $ENV{$config_key_name} if $ENV{$config_key_name} ;
+
+    return @my_files, @files;
 }
 
 sub _find_my_files {
@@ -34,32 +58,13 @@ sub _find_my_files {
     my @my_files   = ();
     my $dh         = DirHandle->new($path);
 
-    my $config_key_name = uc($prefix) . '_CONFIG_MULTI';
-
 
     while ( my $file = $dh->read() ) {
         next unless $file =~ /^$prefix\_(.+)\.\w+$/ && $suffix ne $1;
 
-
-        if ( $ENV{ $config_key_name } ) {
-            push @my_files, (
-                map {
-                    (   "${path_prefix}_${1}.$_",)
-                    } @extensions
-            );
-        }
-        else {
-            push @my_files, (
-                map {
-                    (   "${path_prefix}_${1}.$_",
-                        "${path_prefix}_${1}_${suffix}.$_"
-                        )
-                    } @extensions
-            );
-        }
+        push @my_files, ( map { ( "${path_prefix}_${1}.$_", ) } @extensions );
     }
 
-    push @my_files ,  $ENV{ $config_key_name } if $ENV{ $config_key_name };
 
     return @my_files;
 }
@@ -133,7 +138,7 @@ override from ConfigLoader
 
 =head1 ENV
 
-you can specify local file with this setting.
+you can specify local file with this setting.( you must use local_sufix for the file name )
 
  $ENV{MYAPP_CONFIG_MULTI} = '/tmp/foo/your_own_local.yaml'
 
